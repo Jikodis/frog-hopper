@@ -34,6 +34,12 @@ your house. See `docs/vision.md` for the full picture and the 7-milestone roadma
   write a plan or any code.
 - **Placeholder art first.** Ship the mechanic with simple colored shapes, swap in
   real sprites later.
+- **The AI authors files directly; the human drives Godot.** Scripts (`.gd`), scenes
+  (`.tscn`), and project config (`project.godot` — input map, autoloads, main scene)
+  are all text, so the AI writes them straight to disk and commits per task. After each
+  task the human does **Project → Reload Current Project**, presses **F5** to playtest,
+  and reports back. Hand the human editor steps only when something truly needs the GUI.
+  (This is how Milestones 1 & 2 were built.)
 
 ## Where things live
 
