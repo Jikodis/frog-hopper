@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="2_hud"]
+[ext_resource type="PackedScene" path="res://scenes/fly.tscn" id="3_fly"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(2000, 40)
@@ -62,5 +64,24 @@ color = Color(0.43, 0.55, 0.6, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformC"]
 shape = SubResource("RectangleShape2D_platform")
 
+[node name="Flies" type="Node2D" parent="."]
+
+[node name="Fly1" parent="Flies" instance=ExtResource("3_fly")]
+position = Vector2(-250, 350)
+
+[node name="Fly2" parent="Flies" instance=ExtResource("3_fly")]
+position = Vector2(-150, 295)
+
+[node name="Fly3" parent="Flies" instance=ExtResource("3_fly")]
+position = Vector2(120, 225)
+
+[node name="Fly4" parent="Flies" instance=ExtResource("3_fly")]
+position = Vector2(350, -25)
+
+[node name="Fly5" parent="Flies" instance=ExtResource("3_fly")]
+position = Vector2(650, 350)
+
 [node name="Player" parent="." instance=ExtResource("1_player")]
 position = Vector2(-400, 300)
+
+[node name="Hud" parent="." instance=ExtResource("2_hud")]
