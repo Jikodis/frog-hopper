@@ -11,8 +11,8 @@ Status key: ▶ current · ⬜ upcoming · ✅ done
 |---|---|---|
 | 1 | Frog that runs & jumps | ✅ done |
 | 2 | One full platformer level | ✅ done |
-| 3 | Town hub (top-down) | ▶ in progress |
-| 4 | Intro + dialogue | ⬜ |
+| 3 | Town hub (top-down) | ✅ done |
+| 4 | Intro + dialogue | ▶ next |
 | 5 | Money + first shop | ⬜ |
 | 6 | House + furniture | ⬜ |
 | 7 | Make gear matter (combat) | ⬜ |
@@ -48,31 +48,39 @@ HUD
 Verify
 - [x] Ran through the playtest checklist in the spec; all pass
 
-## ▶ In progress: Milestone 3 — Town hub (top-down)
+## ✅ Completed: Milestone 3 — Town hub (top-down)
 
 Spec: `docs/specs/milestone-3-town-hub.md` · Plan: `docs/plans/milestone-3-town-hub-plan.md`
-Scope: top-down town (main-street layout), all 5 buildings enterable (empty interiors),
-a level gate, and town↔level / town↔interior transitions via a new `SceneRouter` autoload.
+All playtests passed; built and pushed. Top-down town with the full town↔level loop and
+all 5 buildings enterable, routed through the `SceneRouter` autoload.
 
 Task 3.1 — inputs + top-down frog + walkable town
-- [ ] Add `move_up`/`move_down` inputs, `SceneRouter` autoload, town as main scene
-- [ ] `scene_router.gd`, `town_player.gd` + `town_player.tscn`
-- [ ] `town.gd` + `town.tscn` (street, 5 labeled buildings, walls, spawn, frog)
+- [x] Add `move_up`/`move_down` inputs, `SceneRouter` autoload, town as main scene
+- [x] `scene_router.gd`, `town_player.gd` + `town_player.tscn`
+- [x] `town.gd` + `town.tscn` (street, 5 labeled buildings, walls, spawn, frog)
 
 Task 3.2 — level gate + return from level
-- [ ] `door.gd` + `door.tscn` (reusable doorway)
-- [ ] Add the gate to the town; win in the level returns to town (`hud.gd`)
+- [x] `door.gd` + `door.tscn` (reusable doorway)
+- [x] Add the gate to the town; win in the level returns to town (`hud.gd`)
 
 Task 3.3 — enterable buildings
-- [ ] `building_interior.gd` + `building_interior.tscn` (one reusable room)
-- [ ] Wire the 5 building doors
+- [x] `building_interior.gd` + `building_interior.tscn` (one reusable room)
+- [x] Wire the 5 building doors
 
 Task 3.4 — full playtest + bookkeeping
-- [ ] Run the spec checklist (incl. no transition loops); tune; mark milestone done
+- [x] Ran the spec checklist (incl. no transition loops); marked milestone done
+
+## ▶ Next: Milestone 4 — Intro + dialogue
+
+Not started. Needs its own spec + plan. Rough shape from `docs/vision.md`: the game opens
+in your bedroom; a few lines of dialogue set up the story; then you step out into the
+town. Introduces a reusable dialogue box and the game-start flow (the bedroom becomes the
+new start scene, in front of the town).
 
 ## Backlog / parking lot (ideas for later)
 
 - In-game "play again" / restart after winning (right now you stop and re-run)
+- Reset the flies score on each level entry (becomes spendable money in Milestone 5)
 - Frog could hop (not just walk) in the top-down town — cosmetic, after town exists
 - Real frog sprite + animations (art pass)
 - Sound effects + music
