@@ -165,5 +165,35 @@ text = "GATE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="WeaponDoor" parent="." instance=ExtResource("3_door")]
+position = Vector2(-130, -300)
+action = "building"
+building_name = "Weapon Shop"
+exit_offset = Vector2(70, 0)
+
+[node name="ArmorDoor" parent="." instance=ExtResource("3_door")]
+position = Vector2(130, -300)
+action = "building"
+building_name = "Armor Shop"
+exit_offset = Vector2(-70, 0)
+
+[node name="ShieldDoor" parent="." instance=ExtResource("3_door")]
+position = Vector2(-130, 100)
+action = "building"
+building_name = "Shield Shop"
+exit_offset = Vector2(70, 0)
+
+[node name="FurnitureDoor" parent="." instance=ExtResource("3_door")]
+position = Vector2(130, 100)
+action = "building"
+building_name = "Furniture Shop"
+exit_offset = Vector2(-70, 0)
+
+[node name="HouseDoor" parent="." instance=ExtResource("3_door")]
+position = Vector2(0, 360)
+action = "building"
+building_name = "House"
+exit_offset = Vector2(0, -60)
+
 [node name="TownPlayer" parent="." instance=ExtResource("2_townplayer")]
 position = Vector2(0, -440)
