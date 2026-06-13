@@ -3,9 +3,9 @@ extends CharacterBody2D
 ## a tall floaty jump, hold for higher, plus one mid-air hop.
 
 # --- Tunable feel values (change these to change how the frog feels) ---
-const RUN_SPEED := 300.0       # how fast the frog runs (pixels/second)
-const JUMP_VELOCITY := -650.0  # upward kick when jumping (negative = up)
-const MAX_AIR_JUMPS := 1       # extra hops allowed after leaving the ground
+const RUN_SPEED := 500.0       # how fast the frog runs (pixels/second)
+const JUMP_VELOCITY := -800.0  # upward kick when jumping (negative = up)
+const MAX_AIR_JUMPS := 2       # extra hops allowed after leaving the ground
 const JUMP_CUT := 0.4          # fraction of upward speed kept if you release early
 const FALL_LIMIT := 1000.0     # how far below the start you can fall before respawning
 
