@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="Script" path="res://scripts/town.gd" id="1_town"]
 [ext_resource type="PackedScene" path="res://scenes/town_player.tscn" id="2_townplayer"]
+[ext_resource type="PackedScene" path="res://scenes/door.tscn" id="3_door"]
 
 [sub_resource type="RectangleShape2D" id="wall_v"]
 size = Vector2(20, 1040)
@@ -148,6 +149,21 @@ shape = SubResource("wall_h")
 
 [node name="DefaultSpawn" type="Marker2D" parent="."]
 position = Vector2(0, -440)
+
+[node name="Gate" parent="." instance=ExtResource("3_door")]
+position = Vector2(0, -540)
+action = "level"
+exit_offset = Vector2(0, 90)
+
+[node name="GateLabel" type="Label" parent="."]
+offset_left = -40.0
+offset_top = -552.0
+offset_right = 40.0
+offset_bottom = -528.0
+theme_override_font_sizes/font_size = 16
+text = "GATE"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TownPlayer" parent="." instance=ExtResource("2_townplayer")]
 position = Vector2(0, -440)

@@ -15,4 +15,5 @@ func _update_score(new_score: int) -> void:
 
 func _on_won() -> void:
 	win_label.show()
-	get_tree().paused = true
+	await get_tree().create_timer(1.5).timeout
+	SceneRouter.return_to_town()
