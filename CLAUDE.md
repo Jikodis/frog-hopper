@@ -84,27 +84,51 @@ Game behavior is mostly verified by **playing it** — there's no good automated
 for "does the jump feel right." Each spec ends with a manual playtest checklist; run
 through it and confirm before calling a milestone done.
 
-## Web export & deploy (Netlify)
+## Web export & deploy (to the xanderbush site, on Netlify)
 
-The game ships to the web as a **no-threads build**, so Netlify needs no special headers.
+**Two repos are involved:**
+- **Source** (this repo): `~/repos/_personal/frog-hopper` — GitHub `Jikodis/frog-hopper`.
+- **Live site**: `~/repos/_personal/xanderbush` — GitHub `Jikodis/xanderbush`. A plain
+  static site (no build step) served from its repo root on Netlify. Sibling folders are
+  subpaths (e.g. `monsters/` → `<site>/monsters/`).
+
+The game is deployed by dropping the web export into **`xanderbush/froghopper/`**, so it
+serves at **`<site>/froghopper/`**. Godot's web export uses relative paths, so a subpath
+works with no config. We ship a **no-threads build**, so Netlify needs no special headers.
 The `Web` preset lives in `export_presets.cfg` (Thread Support off).
 
-Rebuild from the command line — **Godot must be in `/Applications`** (running it from
-`~/Downloads` gets killed by macOS Gatekeeper on CLI launch, exit 137):
+**To rebuild and redeploy after game changes:**
+
+1. Export — **Godot must be in `/Applications`** (run from `~/Downloads` it's killed by
+   macOS Gatekeeper on CLI launch, exit 137):
+
+   ```
+   "/Applications/Godot.app/Contents/MacOS/Godot" --headless \
+     --path ~/repos/_personal/frog-hopper \
+     --export-release "Web" ~/repos/_personal/frog-hopper/build/web/index.html
+   ```
+   Output lands in `build/web/` (gitignored in this repo).
+
+2. Test locally: `python3 -m http.server 8000 --directory build/web`, then open
+   http://localhost:8000 — you can't open `index.html` via `file://` (browsers block the
+   WebAssembly load).
+
+3. Copy into the site repo:
+   `cp -R ~/repos/_personal/frog-hopper/build/web/. ~/repos/_personal/xanderbush/froghopper/`
+
+4. Commit + push the **xanderbush** repo. Netlify publishes from it on push *if that site is
+   connected to the `Jikodis/xanderbush` GitHub repo*; otherwise drag the `xanderbush` folder
+   onto Netlify (Add new site → Deploy manually). The build includes a ~37 MB `index.wasm`,
+   which lives in the xanderbush git history (fine for a hobby site).
+
+If Thread Support is ever turned on, the export needs cross-origin isolation. On Netlify,
+add a `_headers` file at the **xanderbush repo root** with:
 
 ```
-"/Applications/Godot.app/Contents/MacOS/Godot" --headless \
-  --path <project> --export-release "Web" <project>/build/web/index.html
+/froghopper/*
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Embedder-Policy: require-corp
 ```
-
-Output lands in `build/web/` (gitignored). Test locally with
-`python3 -m http.server 8000 --directory build/web`, then open http://localhost:8000 —
-you can't open `index.html` via `file://` (browsers block the WebAssembly load).
-
-Deploy: drag the `build/web` folder onto Netlify (Add new site → Deploy manually), or
-`netlify deploy --dir=build/web --prod`. If Thread Support is ever turned on, add a
-`build/web/_headers` file with `Cross-Origin-Opener-Policy: same-origin` and
-`Cross-Origin-Embedder-Policy: require-corp`.
 
 ## Verified Godot 4.6 references
 
