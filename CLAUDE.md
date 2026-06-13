@@ -9,7 +9,7 @@ project. The dad guides his son; the AI is a **full-capability build partner** �
 write clean, well-commented code that's easy to *teach from*, and explain the
 "why," not just the "what."
 
-- **Engine:** Godot **4.6** (installed at `~/Downloads/Godot.app`)
+- **Engine:** Godot **4.6** (installed at `/Applications/Godot.app`)
 - **Language:** GDScript (not C#) — easiest to learn, matches all the tutorials
 - **Renderer:** GL Compatibility (already set; this is what Web export wants)
 - **Ship target:** the Web (HTML5/WebAssembly) — the finished game runs in a
@@ -74,14 +74,37 @@ your house. See `docs/vision.md` for the full picture and the 7-milestone roadma
 
 ## Running the game
 
-Open this folder in Godot (`~/Downloads/Godot.app`), press **F5** to play. The main
-scene is set in Project Settings → Application → Run.
+Open this folder in Godot (`/Applications/Godot.app`), press **F5** to play. The main
+scene is set in Project Settings → Application → Run. (The project lives at
+`~/repos/_personal/frog-hopper`.)
 
 ## Verifying changes
 
 Game behavior is mostly verified by **playing it** — there's no good automated test
 for "does the jump feel right." Each spec ends with a manual playtest checklist; run
 through it and confirm before calling a milestone done.
+
+## Web export & deploy (Netlify)
+
+The game ships to the web as a **no-threads build**, so Netlify needs no special headers.
+The `Web` preset lives in `export_presets.cfg` (Thread Support off).
+
+Rebuild from the command line — **Godot must be in `/Applications`** (running it from
+`~/Downloads` gets killed by macOS Gatekeeper on CLI launch, exit 137):
+
+```
+"/Applications/Godot.app/Contents/MacOS/Godot" --headless \
+  --path <project> --export-release "Web" <project>/build/web/index.html
+```
+
+Output lands in `build/web/` (gitignored). Test locally with
+`python3 -m http.server 8000 --directory build/web`, then open http://localhost:8000 —
+you can't open `index.html` via `file://` (browsers block the WebAssembly load).
+
+Deploy: drag the `build/web` folder onto Netlify (Add new site → Deploy manually), or
+`netlify deploy --dir=build/web --prod`. If Thread Support is ever turned on, add a
+`build/web/_headers` file with `Cross-Origin-Opener-Policy: same-origin` and
+`Cross-Origin-Embedder-Policy: require-corp`.
 
 ## Verified Godot 4.6 references
 
