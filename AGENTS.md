@@ -9,7 +9,7 @@ project. The dad guides his son; the AI is a **full-capability build partner** �
 write clean, well-commented code that's easy to *teach from*, and explain the
 "why," not just the "what."
 
-- **Engine:** Godot **4.6** (installed at `/Applications/Godot.app`)
+- **Engine:** Godot **4.7** (4.7.2 installed at `/Applications/Godot.app`; upgraded from 4.6 on 2026-11-19)
 - **Language:** GDScript (not C#) — easiest to learn, matches all the tutorials
 - **Renderer:** GL Compatibility (already set; this is what Web export wants)
 - **Ship target:** the Web (HTML5/WebAssembly) — the finished game runs in a
@@ -133,9 +133,9 @@ add a `_headers` file at the **xanderbush repo root** with:
   Cross-Origin-Embedder-Policy: require-corp
 ```
 
-## Verified Godot 4.6 references
+## Verified Godot references
 
-The 2D platformer movement pattern (confirmed against the 4.6 docs):
+The 2D platformer movement pattern (confirmed against the 4.6 docs; not yet rechecked for 4.7):
 
 ```gdscript
 extends CharacterBody2D
