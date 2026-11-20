@@ -122,7 +122,7 @@ Task 5.4 — playtest + deploy
 
 ## ▶ Next: Milestone 6 — More levels + level select
 
-Not started. Needs its own spec + plan.
+Spec: `docs/specs/milestone-6-more-levels.md` (drafted, awaiting review).
 
 ## Backlog / parking lot (ideas for later)
 
