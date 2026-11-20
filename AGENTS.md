@@ -39,7 +39,10 @@ your house. See `docs/vision.md` for the full picture and the 7-milestone roadma
   are all text, so the AI writes them straight to disk and commits per task. After each
   task the human does **Project → Reload Current Project**, presses **F5** to playtest,
   and reports back. Hand the human editor steps only when something truly needs the GUI.
-  (This is how Milestones 1 & 2 were built.)
+  (This is how Milestones 1 to 3 were built.)
+- **Commits go straight to `main`, no pull requests** (decided 2026-11-19). An AI
+  session works in a worktree under `.worktrees/<name>`, rebases onto `origin/main`, and
+  pushes with `git push origin <branch>:main`, then removes the worktree and branch.
 
 ## Where things live
 

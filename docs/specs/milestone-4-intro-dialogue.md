@@ -1,6 +1,6 @@
 # Spec — Milestone 4: Intro + dialogue
 
-_Created: 2026-11-19 · Status: drafted, awaiting review_
+_Created: 2026-11-19 · Status: approved 2026-11-19 (placeholder story lines, house door leads to the bedroom, no skip key until save exists)_
 
 ## Goal
 
@@ -72,7 +72,7 @@ These are placeholder lines; the real story is your son's to write.
    Pressing it again moves to the next line.
 4. After the last line, the panel hides and `finished` is emitted.
 
-**Teaching note:** this is the "nodes talk through signals" rule from `CLAUDE.md`. The box
+**Teaching note:** this is the "nodes talk through signals" rule from `AGENTS.md`. The box
 doesn't know the bedroom exists; it just says "I'm done." Milestone 5's shop listens to
 the same signal.
 

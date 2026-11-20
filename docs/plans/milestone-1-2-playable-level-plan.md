@@ -8,7 +8,7 @@
 
 **Tech Stack:** Godot 4.6, GDScript, GL Compatibility renderer.
 
-**How we verify:** Manual playtest — press **F5** in the editor and observe. Each task ends with an observation checklist and a commit. (See `CLAUDE.md`.)
+**How we verify:** Manual playtest — press **F5** in the editor and observe. Each task ends with an observation checklist and a commit. (See `AGENTS.md`.)
 
 **Reference spec:** `docs/specs/milestone-1-2-playable-level.md`
 

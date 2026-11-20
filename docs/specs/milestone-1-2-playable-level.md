@@ -29,7 +29,7 @@ counter is just a per-level score; it becomes spendable money in Milestone 5.
 
 ## Scenes & scripts
 
-Filenames are `snake_case`; node names are `PascalCase` (see `CLAUDE.md`).
+Filenames are `snake_case`; node names are `PascalCase` (see `AGENTS.md`).
 
 | File | Type | Responsibility |
 |---|---|---|
