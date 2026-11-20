@@ -6,9 +6,9 @@ extends Node2D
 ## The opening story. Each line is a speaker and what they say.
 ## Rewrite these to change the story; nothing else needs to change.
 const INTRO_LINES := [
-	{"speaker": "Mom", "text": "Wake up, sleepyhead! The sun's been up for hours."},
+	{"speaker": "Dad", "text": "Wake up, sleepyhead! The sun's been up for hours."},
 	{"speaker": "Frog", "text": "Five more minutes..."},
-	{"speaker": "Mom", "text": "The shops in town are open. If you catch some flies, you can buy something nice."},
+	{"speaker": "Dad", "text": "The shops in town are open. If you catch some flies, you can buy something nice."},
 	{"speaker": "Frog", "text": "Flies? I'm on it!"},
 ]
 
