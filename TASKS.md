@@ -14,8 +14,8 @@ Status key: ▶ current · ⬜ upcoming · ✅ done
 | 3 | Town hub (top-down) | ✅ done |
 | 4 | Intro + dialogue | ✅ done |
 | 5 | Money + first shop + saving (+ play again, fly reset) | ✅ done |
-| 6 | More levels + level select | ▶ built, playtest next |
-| 7 | Enemies, hazards + hearts (stomp) | ⬜ |
+| 6 | More levels + level select | ✅ done |
+| 7 | Enemies, hazards + hearts (stomp) | ▶ next |
 | 8 | House + furniture | ⬜ |
 | 9 | Gear matters (tongue + sword, armor, shields) | ⬜ |
 | 10 | Final boss: the King Poison Dart Frog + ending | ⬜ |
@@ -120,10 +120,10 @@ Task 5.4 — playtest + deploy
 - [x] Ran the spec checklist with F5; all pass
 - [x] Deployed to https://xanderbush.com/froghopper/ (xanderbush 87544e6)
 
-## ▶ Current: Milestone 6 — More levels + level select
+## ✅ Completed: Milestone 6 — More levels + level select
 
-Spec: `docs/specs/milestone-6-more-levels.md` (approved 2026-11-19). Built; waiting on the
-F5 playtest.
+Spec: `docs/specs/milestone-6-more-levels.md` (approved 2026-11-19). All playtests
+passed 2026-11-19.
 
 Task 6.1 — levels
 - [x] `level_catalog.gd`, `level.gd` on every level root; HUD shows the level name
@@ -137,8 +137,12 @@ Task 6.2 — world map + unlocking
 - [x] Doors change scenes with `call_deferred` (fixes a physics-callback error)
 
 Task 6.3 — playtest + deploy
-- [ ] Run the spec checklist with F5 (press F9 first for a new game)
-- [ ] Deploy the web build to the website
+- [x] Ran the spec checklist with F5; all pass
+- [x] Deployed to https://xanderbush.com/froghopper/ (xanderbush 3f84972)
+
+## ▶ Next: Milestone 7 — Enemies, hazards + hearts
+
+Not started. Needs its own spec + plan.
 
 ## Backlog / parking lot (ideas for later)
 
