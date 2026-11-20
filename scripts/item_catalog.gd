@@ -9,9 +9,20 @@ const WEAPONS := [
 	{"id": "golden_sword", "name": "Golden Sword", "price": 60},
 ]
 
-## Look up an item by its id. Returns an empty dictionary if there's no such item.
+## Furniture sold in the furniture shop. It shows up in your bedroom, where you can push
+## it around. A "note" is shown next to the price in the shop.
+const FURNITURE := [
+	{"id": "rug", "name": "Rug", "price": 8},
+	{"id": "lamp", "name": "Lamp", "price": 12},
+	{"id": "bookshelf", "name": "Bookshelf", "price": 20},
+	{"id": "fish_tank", "name": "Fish Tank", "price": 35},
+	{"id": "big_bed", "name": "Big Bed", "price": 50, "note": "+1 heart"},
+]
+
+## Look up an item by its id, in every shop's list. Returns an empty dictionary if
+## there's no such item.
 static func find(id: String) -> Dictionary:
-	for item in WEAPONS:
+	for item in WEAPONS + FURNITURE:
 		if item["id"] == id:
 			return item
 	return {}

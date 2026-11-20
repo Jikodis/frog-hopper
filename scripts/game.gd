@@ -10,7 +10,7 @@ signal out_of_hearts
 
 const COINS_PER_FLY := 1   # coins each fly is worth when you finish a level
 const FINISH_BONUS := 5    # extra coins for reaching the goal
-const MAX_HEARTS := 3      # hearts the frog starts every level with
+const MAX_HEARTS := 3      # hearts the frog starts every level with (before bonuses)
 
 ## Flies caught in the current run of a level. Not saved; reset when a level starts.
 var score: int = 0
@@ -26,6 +26,7 @@ var coins: int = 0
 var owned_items: Array[String] = []  # item ids, e.g. "twig_sword"
 var intro_done := false              # true once the bedroom story has been shown
 var levels_beaten := 0               # highest level number you've beaten (0 = none yet)
+var furniture_positions := {}        # item id -> [x, y] where you pushed it in the bedroom
 
 func _ready() -> void:
 	_load()
@@ -42,8 +43,12 @@ func reset_score() -> void:
 
 # --- Hearts (this run) ---
 
+## Hearts at the start of a level: the base 3, plus 1 for owning the Big Bed.
+func max_hearts() -> int:
+	return MAX_HEARTS + (1 if owns("big_bed") else 0)
+
 func reset_hearts() -> void:
-	hearts = MAX_HEARTS
+	hearts = max_hearts()
 	hearts_changed.emit(hearts)
 
 ## Take away one heart. When the last one is gone, the level is failed.
@@ -99,6 +104,18 @@ func mark_intro_done() -> void:
 	intro_done = true
 	save()
 
+# --- Furniture ---
+
+## Remember where a piece of furniture was pushed to, and save it.
+func set_furniture_position(item_id: String, pos: Vector2) -> void:
+	furniture_positions[item_id] = [pos.x, pos.y]
+	save()
+
+## Where a piece of furniture was pushed to, or `fallback` if it was never moved.
+func furniture_position(item_id: String, fallback: Vector2) -> Vector2:
+	var saved: Array = furniture_positions.get(item_id, [])
+	return Vector2(saved[0], saved[1]) if saved.size() == 2 else fallback
+
 # --- Saving ---
 
 func save() -> void:
@@ -107,6 +124,7 @@ func save() -> void:
 		"owned_items": owned_items,
 		"intro_done": intro_done,
 		"levels_beaten": levels_beaten,
+		"furniture_positions": furniture_positions,
 	})
 
 func _load() -> void:
@@ -116,6 +134,7 @@ func _load() -> void:
 	owned_items.assign(data.get("owned_items", []))
 	intro_done = bool(data.get("intro_done", false))
 	levels_beaten = int(data.get("levels_beaten", 0))
+	furniture_positions = data.get("furniture_positions", {})
 
 ## Wipe the save and start from nothing (the F9 key, until the title screen exists).
 func new_game() -> void:
@@ -125,4 +144,6 @@ func new_game() -> void:
 	owned_items.clear()
 	intro_done = false
 	levels_beaten = 0
+	furniture_positions = {}
+	hearts = MAX_HEARTS
 	coins_changed.emit(coins)

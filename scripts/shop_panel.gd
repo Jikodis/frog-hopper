@@ -46,6 +46,8 @@ func _render() -> void:
 			var item: Dictionary = _items[i]
 			var price := "Owned" if Game.owns(item["id"]) else "%d coins" % item["price"]
 			label.text = "%s%s  -  %s" % [pointer, item["name"], price]
+			if item.has("note"):
+				label.text += "  (%s)" % item["note"]
 		else:
 			label.text = pointer + "Leave"
 		rows.add_child(label)

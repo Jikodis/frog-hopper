@@ -1,0 +1,101 @@
+[gd_scene load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/furniture_shop.gd" id="1_furnshop"]
+[ext_resource type="PackedScene" path="res://scenes/town_player.tscn" id="2_townplayer"]
+[ext_resource type="PackedScene" path="res://scenes/door.tscn" id="3_door"]
+[ext_resource type="PackedScene" path="res://scenes/dialogue_box.tscn" id="4_dialogue"]
+[ext_resource type="PackedScene" path="res://scenes/talk_zone.tscn" id="5_talkzone"]
+[ext_resource type="PackedScene" path="res://scenes/shop_panel.tscn" id="6_shoppanel"]
+[ext_resource type="PackedScene" path="res://scenes/coin_hud.tscn" id="7_coinhud"]
+
+[sub_resource type="RectangleShape2D" id="room_wall_v"]
+size = Vector2(20, 440)
+
+[sub_resource type="RectangleShape2D" id="room_wall_h"]
+size = Vector2(640, 20)
+
+[sub_resource type="RectangleShape2D" id="counter_shape"]
+size = Vector2(300, 40)
+
+[node name="FurnitureShop" type="Node2D"]
+script = ExtResource("1_furnshop")
+
+[node name="Floor" type="ColorRect" parent="."]
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
+color = Color(0.32, 0.36, 0.28, 1)
+
+[node name="NameLabel" type="Label" parent="."]
+offset_left = -250.0
+offset_top = -196.0
+offset_right = 250.0
+offset_bottom = -156.0
+theme_override_font_sizes/font_size = 28
+text = "Furniture Shop"
+horizontal_alignment = 1
+
+[node name="Shopkeeper" type="ColorRect" parent="."]
+offset_left = -20.0
+offset_top = -150.0
+offset_right = 20.0
+offset_bottom = -110.0
+color = Color(0.4, 0.6, 0.85, 1)
+
+[node name="Counter" type="StaticBody2D" parent="."]
+position = Vector2(0, -80)
+
+[node name="Visual" type="ColorRect" parent="Counter"]
+offset_left = -150.0
+offset_top = -20.0
+offset_right = 150.0
+offset_bottom = 20.0
+color = Color(0.55, 0.38, 0.2, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Counter"]
+shape = SubResource("counter_shape")
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Left" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-310, 0)
+shape = SubResource("room_wall_v")
+
+[node name="Right" type="CollisionShape2D" parent="Walls"]
+position = Vector2(310, 0)
+shape = SubResource("room_wall_v")
+
+[node name="Top" type="CollisionShape2D" parent="Walls"]
+position = Vector2(0, -210)
+shape = SubResource("room_wall_h")
+
+[node name="Bottom" type="CollisionShape2D" parent="Walls"]
+position = Vector2(0, 210)
+shape = SubResource("room_wall_h")
+
+[node name="TalkZone" parent="." instance=ExtResource("5_talkzone")]
+position = Vector2(0, -30)
+
+[node name="ExitDoor" parent="." instance=ExtResource("3_door")]
+position = Vector2(0, 170)
+action = "town"
+
+[node name="ExitLabel" type="Label" parent="."]
+offset_left = -40.0
+offset_top = 182.0
+offset_right = 40.0
+offset_bottom = 206.0
+theme_override_font_sizes/font_size = 16
+text = "EXIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TownPlayer" parent="." instance=ExtResource("2_townplayer")]
+position = Vector2(0, 100)
+
+[node name="CoinHud" parent="." instance=ExtResource("7_coinhud")]
+
+[node name="DialogueBox" parent="." instance=ExtResource("4_dialogue")]
+
+[node name="ShopPanel" parent="." instance=ExtResource("6_shoppanel")]

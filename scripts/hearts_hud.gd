@@ -6,7 +6,7 @@ const FULL := Color(0.9, 0.15, 0.25)
 const EMPTY := Color(0.25, 0.25, 0.3)
 
 func _ready() -> void:
-	for i in Game.MAX_HEARTS:
+	for i in Game.max_hearts():
 		var heart := ColorRect.new()
 		heart.custom_minimum_size = Vector2(28, 28)
 		add_child(heart)

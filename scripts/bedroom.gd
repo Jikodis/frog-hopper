@@ -2,6 +2,7 @@ extends Node2D
 ## Your bedroom: where the game starts. The first time you're here, a short story plays
 ## in the dialogue box and the frog can't move until it ends. After that (coming back in
 ## through the house door, or opening the game again), the room is just a room.
+## Furniture you've bought shows up here (see furniture.gd).
 
 ## The opening story. Each line is a speaker and what they say.
 ## Rewrite these to change the story; nothing else needs to change.
@@ -16,6 +17,9 @@ const INTRO_LINES := [
 @onready var dialogue_box: DialogueBox = $DialogueBox
 
 func _ready() -> void:
+	# The Big Bed replaces the small one.
+	if Game.owns("big_bed"):
+		$Bed.queue_free()
 	if Game.intro_done:
 		return
 	player.can_move = false

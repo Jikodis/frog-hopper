@@ -16,7 +16,7 @@ Status key: ▶ current · ⬜ upcoming · ✅ done
 | 5 | Money + first shop + saving (+ play again, fly reset) | ✅ done |
 | 6 | More levels + level select | ✅ done |
 | 7 | Enemies, hazards + hearts (stomp) | ✅ done |
-| 8 | House + furniture | ▶ spec drafted, 3 decisions open |
+| 8 | House + furniture | ▶ built, waiting on playtest |
 | 9 | Gear matters (tongue + sword, armor, shields) | ⬜ |
 | 10 | Final boss: the King Poison Dart Frog + ending | ⬜ |
 | 11 | On-screen touch buttons | ⬜ |
@@ -154,9 +154,18 @@ Spec: `docs/specs/milestone-7-enemies-hearts.md` (approved 2026-11-20)
 - [x] Your playtest (checklist in the spec): all passed
 - [x] Deployed: https://xanderbush.com/froghopper/ (xanderbush 211dc01)
 
-## ▶ Next: Milestone 8: House + furniture
+## ▶ Current: Milestone 8: House + furniture
 
-Not started. Needs its own spec.
+Spec: `docs/specs/milestone-8-house-furniture.md` (approved 2026-11-20)
+
+- [x] Furniture list in `ItemCatalog` (Rug, Lamp, Bookshelf, Fish Tank, Big Bed)
+- [x] Furniture shop room behind the town's Furniture Shop door
+- [x] Bought furniture shows up in the bedroom; the Big Bed replaces the small bed
+- [x] Push furniture around; spots saved; the door stays clear
+- [x] Big Bed gives +1 heart in levels
+- [x] Headless checks pass (13 of 13)
+- [ ] Your playtest (checklist in the spec)
+- [ ] Deploy to the website
 
 ## Backlog / parking lot (ideas for later)
 

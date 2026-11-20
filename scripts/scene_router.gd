@@ -8,6 +8,7 @@ const WORLD_MAP := "res://scenes/world_map.tscn"
 const INTERIOR := "res://scenes/building_interior.tscn"
 const BEDROOM := "res://scenes/bedroom.tscn"
 const WEAPON_SHOP := "res://scenes/weapon_shop.tscn"
+const FURNITURE_SHOP := "res://scenes/furniture_shop.tscn"
 
 ## On the street just in front of the house door (house door is at (0, 360)).
 ## Used the first time you walk out of the bedroom, when no door has set a spawn yet.
@@ -57,6 +58,8 @@ func enter_building(building_name: String, spawn_on_return: Vector2) -> void:
 			get_tree().change_scene_to_file(BEDROOM)
 		"Weapon Shop":
 			get_tree().change_scene_to_file(WEAPON_SHOP)
+		"Furniture Shop":
+			get_tree().change_scene_to_file(FURNITURE_SHOP)
 		_:
 			get_tree().change_scene_to_file(INTERIOR)
 
