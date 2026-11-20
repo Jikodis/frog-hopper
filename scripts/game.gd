@@ -7,6 +7,9 @@ signal won
 
 var score: int = 0
 
+# Story flags: things that have happened in this play session.
+var intro_done := false  # true once the bedroom story has been shown
+
 func add_score(amount: int) -> void:
 	score += amount
 	score_changed.emit(score)

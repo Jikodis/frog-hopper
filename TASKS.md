@@ -12,7 +12,7 @@ Status key: ▶ current · ⬜ upcoming · ✅ done
 | 1 | Frog that runs & jumps | ✅ done |
 | 2 | One full platformer level | ✅ done |
 | 3 | Town hub (top-down) | ✅ done |
-| 4 | Intro + dialogue | ▶ next |
+| 4 | Intro + dialogue | ▶ built, playtest next |
 | 5 | Money + first shop | ⬜ |
 | 6 | House + furniture | ⬜ |
 | 7 | Make gear matter (combat) | ⬜ |
@@ -70,12 +70,24 @@ Task 3.3 — enterable buildings
 Task 3.4 — full playtest + bookkeeping
 - [x] Ran the spec checklist (incl. no transition loops); marked milestone done
 
-## ▶ Next: Milestone 4 — Intro + dialogue
+## ▶ Current: Milestone 4 — Intro + dialogue
 
-Spec drafted: `docs/specs/milestone-4-intro-dialogue.md` (awaiting review). Plan next. Rough shape from `docs/vision.md`: the game opens
-in your bedroom; a few lines of dialogue set up the story; then you step out into the
-town. Introduces a reusable dialogue box and the game-start flow (the bedroom becomes the
-new start scene, in front of the town).
+Spec: `docs/specs/milestone-4-intro-dialogue.md` (approved 2026-11-19). Built; waiting on
+the F5 playtest. The game now opens in the bedroom, plays a short story in a reusable
+dialogue box, then you walk out to town in front of the house.
+
+Task 4.1 — dialogue box + interact key
+- [x] Add the `interact` action (Space, Enter, E) to `project.godot`
+- [x] `dialogue_box.gd` + `dialogue_box.tscn` (typing text, skip-to-end, `started` / `finished`)
+
+Task 4.2 — bedroom + game-start flow
+- [x] `Game.intro_done` story flag; `TownPlayer.can_move`
+- [x] `bedroom.gd` + `bedroom.tscn` (story lines in `INTRO_LINES`); bedroom is the main scene
+- [x] `SceneRouter`: house door goes to the bedroom; first trip to town lands at the house
+
+Task 4.3 — playtest + bookkeeping
+- [ ] Run the spec checklist with F5; mark the milestone done
+- [ ] Your son rewrites `INTRO_LINES` in `scripts/bedroom.gd` (placeholders for now)
 
 ## Backlog / parking lot (ideas for later)
 
