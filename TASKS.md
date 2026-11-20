@@ -15,8 +15,8 @@ Status key: ▶ current · ⬜ upcoming · ✅ done
 | 4 | Intro + dialogue | ✅ done |
 | 5 | Money + first shop + saving (+ play again, fly reset) | ✅ done |
 | 6 | More levels + level select | ✅ done |
-| 7 | Enemies, hazards + hearts (stomp) | ▶ built, waiting on playtest |
-| 8 | House + furniture | ⬜ |
+| 7 | Enemies, hazards + hearts (stomp) | ✅ done |
+| 8 | House + furniture | ▶ next |
 | 9 | Gear matters (tongue + sword, armor, shields) | ⬜ |
 | 10 | Final boss: the King Poison Dart Frog + ending | ⬜ |
 | 11 | On-screen touch buttons | ⬜ |
@@ -140,7 +140,7 @@ Task 6.3 — playtest + deploy
 - [x] Ran the spec checklist with F5; all pass
 - [x] Deployed to https://xanderbush.com/froghopper/ (xanderbush 3f84972)
 
-## ▶ Current: Milestone 7: Enemies, hazards + hearts
+## ✅ Completed: Milestone 7: Enemies, hazards + hearts
 
 Spec: `docs/specs/milestone-7-enemies-hearts.md` (approved 2026-11-20)
 
@@ -151,8 +151,12 @@ Spec: `docs/specs/milestone-7-enemies-hearts.md` (approved 2026-11-20)
 - [x] Fail panel: Try again / Back to map, no coins paid
 - [x] Beetles and spikes in Levels 2 to 4 (Level 1 stays safe)
 - [x] Headless checks pass (22 of 22)
-- [ ] Your playtest (checklist in the spec)
-- [ ] Deploy to the website
+- [x] Your playtest (checklist in the spec): all passed
+- [x] Deployed: https://xanderbush.com/froghopper/ (xanderbush 211dc01)
+
+## ▶ Next: Milestone 8: House + furniture
+
+Not started. Needs its own spec.
 
 ## Backlog / parking lot (ideas for later)
 
