@@ -4,3 +4,6 @@
 
 # Web export output (build artifact — don't commit; deploy it to Netlify instead)
 /build/
+
+# Agent worktrees (disposable checkouts of branches)
+/.worktrees/

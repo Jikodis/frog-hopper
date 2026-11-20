@@ -72,7 +72,7 @@ Task 3.4 — full playtest + bookkeeping
 
 ## ▶ Next: Milestone 4 — Intro + dialogue
 
-Not started. Needs its own spec + plan. Rough shape from `docs/vision.md`: the game opens
+Spec drafted: `docs/specs/milestone-4-intro-dialogue.md` (awaiting review). Plan next. Rough shape from `docs/vision.md`: the game opens
 in your bedroom; a few lines of dialogue set up the story; then you step out into the
 town. Introduces a reusable dialogue box and the game-start flow (the bedroom becomes the
 new start scene, in front of the town).
