@@ -1,10 +1,12 @@
-[gd_scene load_steps=14 format=3]
+[gd_scene load_steps=16 format=3]
 
 [ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1_player"]
 [ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="2_hud"]
 [ext_resource type="PackedScene" path="res://scenes/fly.tscn" id="3_fly"]
 [ext_resource type="PackedScene" path="res://scenes/goal.tscn" id="4_goal"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="5_level"]
+[ext_resource type="PackedScene" path="res://scenes/beetle.tscn" id="7_beetle"]
+[ext_resource type="PackedScene" path="res://scenes/spikes.tscn" id="8_spikes"]
 
 [sub_resource type="RectangleShape2D" id="shape_0"]
 size = Vector2(1000, 40)
@@ -161,6 +163,16 @@ position = Vector2(180, -635)
 
 [node name="Fly7" parent="Flies" instance=ExtResource("3_fly")]
 position = Vector2(-300, -300)
+
+[node name="Hazards" type="Node2D" parent="."]
+
+[node name="Beetle1" parent="Hazards" instance=ExtResource("7_beetle")]
+position = Vector2(200, 368)
+direction = 1.0
+
+[node name="Spikes1" parent="Hazards" instance=ExtResource("8_spikes")]
+position = Vector2(380, 380)
+width = 80.0
 
 [node name="Player" parent="." instance=ExtResource("1_player")]
 position = Vector2(-300, 300)

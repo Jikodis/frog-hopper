@@ -1,6 +1,6 @@
 # Spec: Milestone 7: Enemies, hazards + hearts
 
-_Created: 2026-11-20 · Status: draft, 4 decisions open (marked **Decision**)_
+_Created: 2026-11-20 · Status: approved 2026-11-20 (3 hearts, falling costs a heart, fail panel, enemies in Levels 2 to 4)_
 
 ## Goal
 
@@ -12,8 +12,7 @@ a panel offers Try again or Back to map.
 
 ## In scope
 
-- **Hearts:** the frog starts every level with full hearts. **Decision 1:** 3 hearts
-  (recommended) or 5.
+- **Hearts:** the frog starts every level with full hearts. **Decision 1:** 3 hearts.
 - **HUD:** a row of hearts next to the fly count; an empty heart for each one lost.
 - **Getting hurt:** lose 1 heart, the frog is knocked back away from the hit, then blinks
   for 1 second and can't be hurt again (so one touch never costs two hearts).
@@ -24,13 +23,17 @@ a panel offers Try again or Back to map.
 - **Spikes** (`spikes.tscn`): a strip of red triangles. Touching it costs a heart and
   knocks the frog up and back.
 - **Falling in the water or off the bottom.** **Decision 2:** costs 1 heart and respawns
-  at the start (recommended), or stays free like now.
-- **Running out of hearts.** **Decision 3:** a "Try again / Back to map" panel, and the
-  level restarts with flies reset and no coins paid (recommended); or restart the level
-  instantly with no panel.
-- **Where enemies go.** **Decision 4:** add beetles and spikes to Levels 2 to 4 and keep
-  Level 1 safe for learning (recommended); add them to all 4 levels; or build a new Level 5
-  for them.
+  at the start.
+- **Running out of hearts.** **Decision 3:** a "Try again / Back to map" panel; Try
+  again restarts the level with flies reset, and no coins are paid.
+- **Where enemies go.** **Decision 4:** beetles and spikes in Levels 2 to 4; Level 1
+  stays safe for learning.
+
+  | Level | Added |
+  |---|---|
+  | 2 Pond Hop | a beetle on the first island, spikes on the second, a beetle by the goal |
+  | 3 Tall Reeds | a beetle and spikes on the ground |
+  | 4 Log Drift | spikes on the starting bank, a beetle by the goal |
 - **Deploy** when the playtest passes.
 
 ## Out of scope (later)
@@ -49,7 +52,7 @@ in the middle of a level; enemies dropping coins; enemy art and sounds (Mileston
 
 **Modified:**
 - `scripts/player.gd`: `take_hit(from_position)`, `bounce()`, an invincibility timer and
-  blinking, knockback. Falling off the bottom goes through `take_hit` if Decision 2 says so.
+  blinking, knockback. Falling off the bottom costs a heart.
 - `scripts/game.gd`: `MAX_HEARTS`, `hearts`, `hearts_changed` and `out_of_hearts`
   signals, `lose_heart()`, `reset_hearts()` (called when a level starts). Hearts are
   **not** saved; every level starts full.
@@ -74,9 +77,9 @@ Press F9 first (new game), then F5. Confirm:
 - [ ] Walking into a beetle costs one heart, knocks the frog back, and the frog blinks;
       touching it again while blinking costs nothing.
 - [ ] Spikes cost a heart the same way.
-- [ ] Falling in the water behaves as Decision 2 says.
+- [ ] Falling in the water costs a heart and respawns the frog at the start.
 - [ ] Losing the last heart shows the fail panel; Try again restarts with full hearts and
       flies reset; Back to map works; no coins are paid for a failed run.
-- [ ] Every level is still beatable; Level 1 matches Decision 4.
+- [ ] Every level is still beatable; Level 1 has no beetles or spikes.
 - [ ] Milestones 3 to 6 checklists still pass.
 - [ ] Deployed to the website.

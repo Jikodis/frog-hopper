@@ -6,3 +6,4 @@ extends Node2D
 
 func _enter_tree() -> void:  # runs before the HUD and other children are ready
 	Game.current_level = level_number
+	Game.reset_hearts()  # every run starts with full hearts

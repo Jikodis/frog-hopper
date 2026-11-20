@@ -5,12 +5,18 @@ extends Node
 signal score_changed(new_score: int)
 signal coins_changed(new_coins: int)
 signal won
+signal hearts_changed(new_hearts: int)
+signal out_of_hearts
 
 const COINS_PER_FLY := 1   # coins each fly is worth when you finish a level
 const FINISH_BONUS := 5    # extra coins for reaching the goal
+const MAX_HEARTS := 3      # hearts the frog starts every level with
 
 ## Flies caught in the current run of a level. Not saved; reset when a level starts.
 var score: int = 0
+
+## Hearts left in the current run. Not saved; full again when a level starts.
+var hearts: int = MAX_HEARTS
 
 ## The level being played right now (set by level.gd). Not saved.
 var current_level := 1
@@ -33,6 +39,21 @@ func add_score(amount: int) -> void:
 func reset_score() -> void:
 	score = 0
 	score_changed.emit(score)
+
+# --- Hearts (this run) ---
+
+func reset_hearts() -> void:
+	hearts = MAX_HEARTS
+	hearts_changed.emit(hearts)
+
+## Take away one heart. When the last one is gone, the level is failed.
+func lose_heart() -> void:
+	if hearts <= 0:
+		return
+	hearts -= 1
+	hearts_changed.emit(hearts)
+	if hearts == 0:
+		out_of_hearts.emit()
 
 func win() -> void:
 	won.emit()

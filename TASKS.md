@@ -15,7 +15,7 @@ Status key: ▶ current · ⬜ upcoming · ✅ done
 | 4 | Intro + dialogue | ✅ done |
 | 5 | Money + first shop + saving (+ play again, fly reset) | ✅ done |
 | 6 | More levels + level select | ✅ done |
-| 7 | Enemies, hazards + hearts (stomp) | ▶ spec drafted, 4 decisions open |
+| 7 | Enemies, hazards + hearts (stomp) | ▶ built, waiting on playtest |
 | 8 | House + furniture | ⬜ |
 | 9 | Gear matters (tongue + sword, armor, shields) | ⬜ |
 | 10 | Final boss: the King Poison Dart Frog + ending | ⬜ |
@@ -140,9 +140,19 @@ Task 6.3 — playtest + deploy
 - [x] Ran the spec checklist with F5; all pass
 - [x] Deployed to https://xanderbush.com/froghopper/ (xanderbush 3f84972)
 
-## ▶ Next: Milestone 7 — Enemies, hazards + hearts
+## ▶ Current: Milestone 7: Enemies, hazards + hearts
 
-Not started. Needs its own spec + plan.
+Spec: `docs/specs/milestone-7-enemies-hearts.md` (approved 2026-11-20)
+
+- [x] Hearts in `Game` (3 per level, not saved) and a hearts row in the HUD
+- [x] Frog: take a hit, knockback, 1 second of blinking; falling costs a heart
+- [x] Beetle: walks, turns at walls and edges; stomp bounces the frog
+- [x] Spikes
+- [x] Fail panel: Try again / Back to map, no coins paid
+- [x] Beetles and spikes in Levels 2 to 4 (Level 1 stays safe)
+- [x] Headless checks pass (22 of 22)
+- [ ] Your playtest (checklist in the spec)
+- [ ] Deploy to the website
 
 ## Backlog / parking lot (ideas for later)
 
