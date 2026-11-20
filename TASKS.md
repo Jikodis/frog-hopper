@@ -15,7 +15,7 @@ Status key: ▶ current · ⬜ upcoming · ✅ done
 | 4 | Intro + dialogue | ✅ done |
 | 5 | Money + first shop + saving (+ play again, fly reset) | ✅ done |
 | 6 | More levels + level select | ✅ done |
-| 7 | Enemies, hazards + hearts (stomp) | ▶ next |
+| 7 | Enemies, hazards + hearts (stomp) | ▶ spec drafted, 4 decisions open |
 | 8 | House + furniture | ⬜ |
 | 9 | Gear matters (tongue + sword, armor, shields) | ⬜ |
 | 10 | Final boss: the King Poison Dart Frog + ending | ⬜ |
