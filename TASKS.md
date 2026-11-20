@@ -13,7 +13,7 @@ Status key: ▶ current · ⬜ upcoming · ✅ done
 | 2 | One full platformer level | ✅ done |
 | 3 | Town hub (top-down) | ✅ done |
 | 4 | Intro + dialogue | ✅ done |
-| 5 | Money + first shop + saving (+ play again, fly reset) | ▶ next |
+| 5 | Money + first shop + saving (+ play again, fly reset) | ▶ built, playtest next |
 | 6 | More levels + level select | ⬜ |
 | 7 | Enemies, hazards + hearts (stomp) | ⬜ |
 | 8 | House + furniture | ⬜ |
@@ -98,10 +98,27 @@ Task 4.3 — playtest + bookkeeping
 - [x] Story speaker changed from Mom to Dad
 - [ ] (Later) Your son rewrites `INTRO_LINES` in `scripts/bedroom.gd`
 
-## ▶ Next: Milestone 5 — Money + first shop + saving
+## ▶ Current: Milestone 5 — Money + first shop + saving
 
-Spec: `docs/specs/milestone-5-money-shop.md` (drafted, awaiting review). Plan + tasks
-next. Folds in two backlog items: play again after winning, and flies reset each run.
+Spec: `docs/specs/milestone-5-money-shop.md` (approved 2026-11-19). Built; waiting on the
+F5 playtest.
+
+Task 5.1 — coins, saving, fly reset
+- [x] `item_catalog.gd` (3 placeholder swords), `save_game.gd` (`user://save.json`)
+- [x] `Game`: coins, owned items, `buy()`, `finish_level()`, save on every change, `new_game()`
+- [x] Fly counter resets every time a level starts; `new_game` action (F9) wipes the save
+
+Task 5.2 — win panel + coin display
+- [x] `win_panel.tscn`: "You win! +N coins", Play again / Back to town (level pauses behind it)
+- [x] `coin_hud.tscn` in the bedroom, town, shops
+
+Task 5.3 — weapon shop
+- [x] `talk_zone.tscn` (reusable "Space: talk" spot), `shop_panel.tscn` (reusable list)
+- [x] `weapon_shop.tscn`: counter, shopkeeper greeting, then the shop list
+
+Task 5.4 — playtest + deploy
+- [ ] Run the spec checklist with F5 (and the web build for saving)
+- [ ] Deploy the web build to the website
 
 ## Backlog / parking lot (ideas for later)
 

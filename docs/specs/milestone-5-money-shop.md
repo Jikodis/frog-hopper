@@ -1,6 +1,6 @@
 # Spec — Milestone 5: Money + first shop + saving
 
-_Created: 2026-11-19 · Status: drafted, awaiting review_
+_Created: 2026-11-19 · Status: approved 2026-11-19 (coins on win, placeholder swords, intro flag saved with F9 reset, shop opens by talking at the counter)_
 
 ## Goal
 

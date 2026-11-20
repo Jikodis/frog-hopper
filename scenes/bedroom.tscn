@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=9 format=3]
 
 [ext_resource type="Script" path="res://scripts/bedroom.gd" id="1_bedroom"]
 [ext_resource type="PackedScene" path="res://scenes/town_player.tscn" id="2_townplayer"]
 [ext_resource type="PackedScene" path="res://scenes/door.tscn" id="3_door"]
 [ext_resource type="PackedScene" path="res://scenes/dialogue_box.tscn" id="4_dialogue"]
+[ext_resource type="PackedScene" path="res://scenes/coin_hud.tscn" id="9_coinhud"]
 
 [sub_resource type="RectangleShape2D" id="room_wall_v"]
 size = Vector2(20, 440)
@@ -87,3 +88,5 @@ vertical_alignment = 1
 position = Vector2(-120, -60)
 
 [node name="DialogueBox" parent="." instance=ExtResource("4_dialogue")]
+
+[node name="CoinHud" parent="." instance=ExtResource("9_coinhud")]

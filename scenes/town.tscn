@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=7 format=3]
 
 [ext_resource type="Script" path="res://scripts/town.gd" id="1_town"]
 [ext_resource type="PackedScene" path="res://scenes/town_player.tscn" id="2_townplayer"]
 [ext_resource type="PackedScene" path="res://scenes/door.tscn" id="3_door"]
+[ext_resource type="PackedScene" path="res://scenes/coin_hud.tscn" id="9_coinhud"]
 
 [sub_resource type="RectangleShape2D" id="wall_v"]
 size = Vector2(20, 1040)
@@ -197,3 +198,5 @@ exit_offset = Vector2(0, -60)
 
 [node name="TownPlayer" parent="." instance=ExtResource("2_townplayer")]
 position = Vector2(0, -440)
+
+[node name="CoinHud" parent="." instance=ExtResource("9_coinhud")]

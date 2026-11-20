@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/shop_panel.gd" id="1_shoppanel"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shop"]
+bg_color = Color(0.05, 0.08, 0.12, 0.9)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="ShopPanel" type="CanvasLayer"]
+script = ExtResource("1_shoppanel")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -170.0
+offset_right = 260.0
+offset_bottom = 170.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_shop")
+
+[node name="TitleLabel" type="Label" parent="Panel"]
+offset_left = 20.0
+offset_top = 14.0
+offset_right = 500.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(1, 0.85, 0.3, 1)
+theme_override_font_sizes/font_size = 28
+text = "Shop"
+horizontal_alignment = 1
+
+[node name="Rows" type="VBoxContainer" parent="Panel"]
+offset_left = 30.0
+offset_top = 66.0
+offset_right = 490.0
+offset_bottom = 270.0
+theme_override_constants/separation = 8
+
+[node name="MessageLabel" type="Label" parent="Panel"]
+offset_left = 20.0
+offset_top = 290.0
+offset_right = 500.0
+offset_bottom = 320.0
+theme_override_colors/font_color = Color(0.75, 0.8, 0.85, 1)
+theme_override_font_sizes/font_size = 18
+text = ""
+horizontal_alignment = 1

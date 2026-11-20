@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/talk_zone.gd" id="1_talkzone"]
+
+[sub_resource type="RectangleShape2D" id="talk_shape"]
+size = Vector2(160, 60)
+
+[node name="TalkZone" type="Area2D"]
+script = ExtResource("1_talkzone")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("talk_shape")
+
+[node name="HintLabel" type="Label" parent="."]
+offset_left = -60.0
+offset_top = 34.0
+offset_right = 60.0
+offset_bottom = 58.0
+theme_override_font_sizes/font_size = 16
+text = "Space: talk"
+horizontal_alignment = 1

@@ -1,7 +1,7 @@
 extends Node2D
 ## Your bedroom: where the game starts. The first time you're here, a short story plays
-## in the dialogue box and the frog can't move until it ends. After that (for example,
-## coming back in through the house door), the room is just a room.
+## in the dialogue box and the frog can't move until it ends. After that (coming back in
+## through the house door, or opening the game again), the room is just a room.
 
 ## The opening story. Each line is a speaker and what they say.
 ## Rewrite these to change the story; nothing else needs to change.
@@ -23,5 +23,5 @@ func _ready() -> void:
 	dialogue_box.start(INTRO_LINES)
 
 func _on_intro_finished() -> void:
-	Game.intro_done = true
+	Game.mark_intro_done()  # saved, so the story only plays on a new game
 	player.can_move = true
