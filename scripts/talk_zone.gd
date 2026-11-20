@@ -6,6 +6,9 @@ extends Area2D
 
 signal talked
 
+## The hint shown while the frog stands here.
+@export var hint_text := "Space: talk"
+
 ## Turn off while the conversation or shop is already open.
 var enabled := true
 
@@ -14,6 +17,7 @@ var _player_inside := false
 @onready var hint_label: Label = $HintLabel
 
 func _ready() -> void:
+	hint_label.text = hint_text
 	hint_label.hide()
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)

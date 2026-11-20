@@ -12,10 +12,14 @@ const FINISH_BONUS := 5    # extra coins for reaching the goal
 ## Flies caught in the current run of a level. Not saved; reset when a level starts.
 var score: int = 0
 
+## The level being played right now (set by level.gd). Not saved.
+var current_level := 1
+
 ## Saved between play sessions:
 var coins: int = 0
 var owned_items: Array[String] = []  # item ids, e.g. "twig_sword"
 var intro_done := false              # true once the bedroom story has been shown
+var levels_beaten := 0               # highest level number you've beaten (0 = none yet)
 
 func _ready() -> void:
 	_load()
@@ -38,9 +42,19 @@ func win() -> void:
 func finish_level() -> int:
 	var earned := score * COINS_PER_FLY + FINISH_BONUS
 	coins += earned
+	levels_beaten = max(levels_beaten, current_level)  # beating a level unlocks the next
 	coins_changed.emit(coins)
 	save()
 	return earned
+
+# --- Levels ---
+
+## Level 1 is always open; every other level opens once you beat the one before it.
+func is_unlocked(number: int) -> bool:
+	return number <= levels_beaten + 1
+
+func is_beaten(number: int) -> bool:
+	return number <= levels_beaten
 
 # --- Items ---
 
@@ -71,6 +85,7 @@ func save() -> void:
 		"coins": coins,
 		"owned_items": owned_items,
 		"intro_done": intro_done,
+		"levels_beaten": levels_beaten,
 	})
 
 func _load() -> void:
@@ -79,6 +94,7 @@ func _load() -> void:
 	coins = int(data.get("coins", 0))
 	owned_items.assign(data.get("owned_items", []))
 	intro_done = bool(data.get("intro_done", false))
+	levels_beaten = int(data.get("levels_beaten", 0))
 
 ## Wipe the save and start from nothing (the F9 key, until the title screen exists).
 func new_game() -> void:
@@ -87,4 +103,5 @@ func new_game() -> void:
 	coins = 0
 	owned_items.clear()
 	intro_done = false
+	levels_beaten = 0
 	coins_changed.emit(coins)

@@ -1,0 +1,159 @@
+[gd_scene load_steps=13 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="2_hud"]
+[ext_resource type="PackedScene" path="res://scenes/fly.tscn" id="3_fly"]
+[ext_resource type="PackedScene" path="res://scenes/goal.tscn" id="4_goal"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="5_level"]
+
+[sub_resource type="RectangleShape2D" id="shape_0"]
+size = Vector2(400, 40)
+
+[sub_resource type="RectangleShape2D" id="shape_1"]
+size = Vector2(300, 40)
+
+[sub_resource type="RectangleShape2D" id="shape_2"]
+size = Vector2(200, 40)
+
+[sub_resource type="RectangleShape2D" id="shape_3"]
+size = Vector2(400, 40)
+
+[sub_resource type="RectangleShape2D" id="shape_4"]
+size = Vector2(120, 20)
+
+[sub_resource type="RectangleShape2D" id="shape_5"]
+size = Vector2(120, 20)
+
+[sub_resource type="RectangleShape2D" id="shape_6"]
+size = Vector2(120, 20)
+
+[node name="Level2" type="Node2D"]
+script = ExtResource("5_level")
+level_number = 2
+
+[node name="Water" type="ColorRect" parent="."]
+offset_left = -700
+offset_top = 400
+offset_right = 1700
+offset_bottom = 700
+color = Color(0.2, 0.45, 0.75, 1)
+
+[node name="BankStart" type="StaticBody2D" parent="."]
+position = Vector2(-400, 400)
+
+[node name="Visual" type="ColorRect" parent="BankStart"]
+offset_left = -200.0
+offset_top = -20.0
+offset_right = 200.0
+offset_bottom = 20.0
+color = Color(0.396078, 0.305882, 0.207843, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BankStart"]
+shape = SubResource("shape_0")
+
+[node name="IslandA" type="StaticBody2D" parent="."]
+position = Vector2(200, 400)
+
+[node name="Visual" type="ColorRect" parent="IslandA"]
+offset_left = -150.0
+offset_top = -20.0
+offset_right = 150.0
+offset_bottom = 20.0
+color = Color(0.396078, 0.305882, 0.207843, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IslandA"]
+shape = SubResource("shape_1")
+
+[node name="IslandB" type="StaticBody2D" parent="."]
+position = Vector2(750, 400)
+
+[node name="Visual" type="ColorRect" parent="IslandB"]
+offset_left = -100.0
+offset_top = -20.0
+offset_right = 100.0
+offset_bottom = 20.0
+color = Color(0.396078, 0.305882, 0.207843, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IslandB"]
+shape = SubResource("shape_2")
+
+[node name="BankEnd" type="StaticBody2D" parent="."]
+position = Vector2(1350, 400)
+
+[node name="Visual" type="ColorRect" parent="BankEnd"]
+offset_left = -200.0
+offset_top = -20.0
+offset_right = 200.0
+offset_bottom = 20.0
+color = Color(0.396078, 0.305882, 0.207843, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BankEnd"]
+shape = SubResource("shape_3")
+
+[node name="LilyPadA" type="StaticBody2D" parent="."]
+position = Vector2(-50, 330)
+
+[node name="Visual" type="ColorRect" parent="LilyPadA"]
+offset_left = -60.0
+offset_top = -10.0
+offset_right = 60.0
+offset_bottom = 10.0
+color = Color(0.3, 0.7, 0.35, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LilyPadA"]
+shape = SubResource("shape_4")
+
+[node name="LilyPadB" type="StaticBody2D" parent="."]
+position = Vector2(500, 300)
+
+[node name="Visual" type="ColorRect" parent="LilyPadB"]
+offset_left = -60.0
+offset_top = -10.0
+offset_right = 60.0
+offset_bottom = 10.0
+color = Color(0.3, 0.7, 0.35, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LilyPadB"]
+shape = SubResource("shape_5")
+
+[node name="LilyPadC" type="StaticBody2D" parent="."]
+position = Vector2(1030, 280)
+
+[node name="Visual" type="ColorRect" parent="LilyPadC"]
+offset_left = -60.0
+offset_top = -10.0
+offset_right = 60.0
+offset_bottom = 10.0
+color = Color(0.3, 0.7, 0.35, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LilyPadC"]
+shape = SubResource("shape_6")
+
+
+[node name="Flies" type="Node2D" parent="."]
+
+[node name="Fly1" parent="Flies" instance=ExtResource("3_fly")]
+position = Vector2(-300, 350)
+
+[node name="Fly2" parent="Flies" instance=ExtResource("3_fly")]
+position = Vector2(-50, 295)
+
+[node name="Fly3" parent="Flies" instance=ExtResource("3_fly")]
+position = Vector2(200, 350)
+
+[node name="Fly4" parent="Flies" instance=ExtResource("3_fly")]
+position = Vector2(500, 265)
+
+[node name="Fly5" parent="Flies" instance=ExtResource("3_fly")]
+position = Vector2(1030, 245)
+
+[node name="Fly6" parent="Flies" instance=ExtResource("3_fly")]
+position = Vector2(1250, 350)
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(-500, 300)
+
+[node name="Hud" parent="." instance=ExtResource("2_hud")]
+
+[node name="Goal" parent="." instance=ExtResource("4_goal")]
+position = Vector2(1400, 372)

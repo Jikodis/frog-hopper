@@ -1,9 +1,10 @@
 extends Node
-## Autoloaded as "SceneRouter". Switches between the bedroom, the town, the level, and
-## building interiors, and remembers where to place the frog when the town next loads.
+## Autoloaded as "SceneRouter". Switches between the bedroom, the town, the world map,
+## the levels, and building interiors, and remembers where to place the frog when the
+## town or the map next loads.
 
 const TOWN := "res://scenes/town.tscn"
-const LEVEL := "res://scenes/level_1.tscn"
+const WORLD_MAP := "res://scenes/world_map.tscn"
 const INTERIOR := "res://scenes/building_interior.tscn"
 const BEDROOM := "res://scenes/bedroom.tscn"
 const WEAPON_SHOP := "res://scenes/weapon_shop.tscn"
@@ -15,18 +16,36 @@ const HOUSE_FRONT := Vector2(0, 300)
 var town_spawn := Vector2.ZERO   # where to drop the frog when the town loads
 var has_town_spawn := false
 var current_building := ""        # shown inside the interior
+var from_level := false           # true when the map loads after a level (stand at its stone)
 
-func go_to_level(spawn_on_return: Vector2) -> void:
+## The town gate: go to the world map, and remember to come back out by the gate.
+func go_to_world_map(spawn_on_return: Vector2) -> void:
 	town_spawn = spawn_on_return
 	has_town_spawn = true
-	Game.reset_score()  # every run starts with zero flies
-	get_tree().change_scene_to_file(LEVEL)
+	from_level = false
+	get_tree().change_scene_to_file(WORLD_MAP)
 
-## Start the same level again (the win panel's "Play again"). The town spawn stays the
-## same, so "Back to town" later still lands by the gate.
+## Start a level by number (from a stone on the world map, or Next level / Play again).
+func go_to_level(number: int) -> void:
+	var level := LevelCatalog.find(number)
+	if level.is_empty():
+		return
+	Game.current_level = number
+	Game.reset_score()  # every run starts with zero flies
+	get_tree().change_scene_to_file(level["path"])
+
+## Start the same level again (the win panel's "Play again").
 func replay_level() -> void:
-	Game.reset_score()
-	get_tree().change_scene_to_file(LEVEL)
+	go_to_level(Game.current_level)
+
+## The next level, if there is one (the win panel's "Next level").
+func next_level() -> void:
+	go_to_level(Game.current_level + 1)
+
+## Back to the map from a level; the frog reappears at that level's stone.
+func return_to_map() -> void:
+	from_level = true
+	get_tree().change_scene_to_file(WORLD_MAP)
 
 func enter_building(building_name: String, spawn_on_return: Vector2) -> void:
 	current_building = building_name

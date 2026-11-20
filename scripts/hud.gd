@@ -3,9 +3,12 @@ extends CanvasLayer
 ## Listens to the Game autoload.
 
 @onready var score_label: Label = $ScoreLabel
+@onready var level_label: Label = $LevelLabel
 @onready var win_panel: CanvasLayer = $WinPanel
 
 func _ready() -> void:
+	var level := LevelCatalog.find(Game.current_level)
+	level_label.text = "Level %d: %s" % [Game.current_level, level.get("name", "")]
 	_update_score(Game.score)
 	Game.score_changed.connect(_update_score)
 	Game.won.connect(_on_won)

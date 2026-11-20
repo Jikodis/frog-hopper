@@ -14,7 +14,7 @@ Status key: ▶ current · ⬜ upcoming · ✅ done
 | 3 | Town hub (top-down) | ✅ done |
 | 4 | Intro + dialogue | ✅ done |
 | 5 | Money + first shop + saving (+ play again, fly reset) | ✅ done |
-| 6 | More levels + level select | ▶ next |
+| 6 | More levels + level select | ▶ built, playtest next |
 | 7 | Enemies, hazards + hearts (stomp) | ⬜ |
 | 8 | House + furniture | ⬜ |
 | 9 | Gear matters (tongue + sword, armor, shields) | ⬜ |
@@ -120,9 +120,25 @@ Task 5.4 — playtest + deploy
 - [x] Ran the spec checklist with F5; all pass
 - [x] Deployed to https://xanderbush.com/froghopper/ (xanderbush 87544e6)
 
-## ▶ Next: Milestone 6 — More levels + level select
+## ▶ Current: Milestone 6 — More levels + level select
 
-Spec: `docs/specs/milestone-6-more-levels.md` (drafted, awaiting review).
+Spec: `docs/specs/milestone-6-more-levels.md` (approved 2026-11-19). Built; waiting on the
+F5 playtest.
+
+Task 6.1 — levels
+- [x] `level_catalog.gd`, `level.gd` on every level root; HUD shows the level name
+- [x] Level 2 Pond Hop, Level 3 Tall Reeds, Level 4 Log Drift (placeholder layouts)
+- [x] `moving_platform.tscn` (logs in Level 4)
+
+Task 6.2 — world map + unlocking
+- [x] `world_map.tscn` + `level_stone.tscn`; the town gate goes to the map
+- [x] `Game.levels_beaten` (saved) unlocks the next level
+- [x] Win panel: Next level / Play again / Back to map
+- [x] Doors change scenes with `call_deferred` (fixes a physics-callback error)
+
+Task 6.3 — playtest + deploy
+- [ ] Run the spec checklist with F5 (press F9 first for a new game)
+- [ ] Deploy the web build to the website
 
 ## Backlog / parking lot (ideas for later)
 

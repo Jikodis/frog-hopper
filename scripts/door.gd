@@ -1,7 +1,7 @@
 extends Area2D
 ## A reusable doorway. `action` chooses what happens when the frog walks in:
 ##   "building" -> enter the interior for `building_name`
-##   "level"    -> start the platformer level
+##   "level"    -> go to the world map (pick a level there)
 ##   "town"     -> return to the town
 ## `exit_offset` is where to drop the frog (relative to this door) on return, so they
 ## land on the street beside the door instead of on top of it.
@@ -20,10 +20,16 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if not _armed or not body.is_in_group("player"):
 		return
+	_armed = false
+	# Changing scenes removes physics bodies, which Godot doesn't allow in the middle of
+	# a physics callback like body_entered. call_deferred waits until the frame is done.
+	_use_door.call_deferred()
+
+func _use_door() -> void:
 	match action:
 		"building":
 			SceneRouter.enter_building(building_name, global_position + exit_offset)
 		"level":
-			SceneRouter.go_to_level(global_position + exit_offset)
+			SceneRouter.go_to_world_map(global_position + exit_offset)
 		"town":
 			SceneRouter.return_to_town()

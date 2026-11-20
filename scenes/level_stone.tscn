@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/level_stone.gd" id="1_stone"]
+[ext_resource type="PackedScene" path="res://scenes/talk_zone.tscn" id="2_talkzone"]
+
+[node name="LevelStone" type="Node2D"]
+script = ExtResource("1_stone")
+
+[node name="Visual" type="ColorRect" parent="."]
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+color = Color(0.45, 0.45, 0.45, 1)
+
+[node name="NumberLabel" type="Label" parent="."]
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(0.1, 0.1, 0.1, 1)
+theme_override_font_sizes/font_size = 32
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameLabel" type="Label" parent="."]
+offset_left = -110.0
+offset_top = -64.0
+offset_right = 110.0
+offset_bottom = -38.0
+theme_override_font_sizes/font_size = 18
+text = "Level"
+horizontal_alignment = 1
+
+[node name="TalkZone" parent="." instance=ExtResource("2_talkzone")]
+hint_text = "Space: play"
