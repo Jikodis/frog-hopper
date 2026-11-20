@@ -7,3 +7,6 @@
 
 # Agent worktrees (disposable checkouts of branches)
 /.worktrees/
+
+# Session scratch pages (HTML pages for reviewing, not part of the game)
+/.claude/scratch/

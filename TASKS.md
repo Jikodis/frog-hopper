@@ -13,9 +13,17 @@ Status key: ▶ current · ⬜ upcoming · ✅ done
 | 2 | One full platformer level | ✅ done |
 | 3 | Town hub (top-down) | ✅ done |
 | 4 | Intro + dialogue | ✅ done |
-| 5 | Money + first shop | ▶ next |
-| 6 | House + furniture | ⬜ |
-| 7 | Make gear matter (combat) | ⬜ |
+| 5 | Money + first shop + saving (+ play again, fly reset) | ▶ next |
+| 6 | More levels + level select | ⬜ |
+| 7 | Enemies, hazards + hearts (stomp) | ⬜ |
+| 8 | House + furniture | ⬜ |
+| 9 | Gear matters (tongue + sword, armor, shields) | ⬜ |
+| 10 | Final boss: the King Poison Dart Frog + ending | ⬜ |
+| 11 | On-screen touch buttons | ⬜ |
+| 12 | Art + sound pass (later) | ⬜ |
+| 13 | Title screen + pause menu (later) | ⬜ |
+
+**Every milestone's last task is a deploy** to the website (steps in `AGENTS.md`).
 
 ## ✅ Completed: Milestones 1 & 2 — playable level
 
@@ -90,17 +98,11 @@ Task 4.3 — playtest + bookkeeping
 - [x] Story speaker changed from Mom to Dad
 - [ ] (Later) Your son rewrites `INTRO_LINES` in `scripts/bedroom.gd`
 
-## ▶ Next: Milestone 5 — Money + first shop
+## ▶ Next: Milestone 5 — Money + first shop + saving
 
-Not started. Needs its own spec + plan. From `docs/vision.md`: flies become coins; buy a
-weapon in the weapon shop and it sticks. Reuses the Milestone 4 dialogue box for the
-shopkeeper.
+Spec: `docs/specs/milestone-5-money-shop.md` (drafted, awaiting review). Plan + tasks
+next. Folds in two backlog items: play again after winning, and flies reset each run.
 
 ## Backlog / parking lot (ideas for later)
 
-- In-game "play again" / restart after winning (right now you stop and re-run)
-- Reset the flies score on each level entry (becomes spendable money in Milestone 5)
 - Frog could hop (not just walk) in the top-down town — cosmetic, after town exists
-- Real frog sprite + animations (art pass)
-- Sound effects + music
-- Save/load between play sessions

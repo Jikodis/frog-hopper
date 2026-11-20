@@ -1,6 +1,6 @@
 # frog-hopper — game vision & roadmap
 
-_Last updated: 2026-06-13_
+_Last updated: 2026-11-19_
 
 ## The dream
 
@@ -24,6 +24,23 @@ you step out into the town and the adventure begins.
 - **Furniture shop** — buy things for your house.
 
 You earn **coins** by collecting flies and finishing levels, then spend them in town.
+
+## The story (decided 2026-11-19)
+
+Dad wakes Frog up and sends him into town to catch flies and buy things. The adventure
+builds toward the **final boss: the King Poison Dart Frog**. Beating him is the ending.
+The exact story lines are your son's to write.
+
+## Combat (decided 2026-11-19)
+
+All combat happens in the platformer levels, in three ways:
+
+- **Stomp:** jump on an enemy's head, like Mario. Comes first, with the first enemies.
+- **Tongue:** the frog flicks its tongue to hit (or grab) things in front of it.
+- **Sword:** a sword swing, bought in the weapon shop. Better swords hit harder.
+
+Armor and shields protect your hearts. What each item does exactly is set in that
+milestone's spec.
 
 ## The frog feel (locked: Option A)
 
@@ -55,16 +72,25 @@ because shops need coins, which come from playing levels.
 
 | # | Milestone | What you can do when it's done | New thing it teaches |
 |---|---|---|---|
-| **1** | Frog that runs & jumps | Hop around a test screen (Option A feel) | Movement, input, gravity |
-| **2** | One full platformer level | Play a level: platforms, collect flies, reach the goal, win/lose + score | Collisions, collectibles, camera, HUD |
-| 3 | Town hub (top-down) | Walk around town, enter a building, start a level from a door, come back | Top-down movement, scene transitions |
-| 4 | Intro + dialogue | Wake up in your room, read the story setup, step into town | Dialogue box, game-start flow |
-| 5 | Money + first shop | Flies become coins; buy a weapon in the weapon shop; it sticks | Saved game state, inventory, shop UI |
-| 6 | House + furniture | Buy furniture and see it appear in your house | Reusing the shop system |
-| 7 | Make gear matter | Weapons/armor/shields actually do something (enemies, combat) | The deep RPG layer |
+| 1 | Frog that runs & jumps ✅ | Hop around a test screen (Option A feel) | Movement, input, gravity |
+| 2 | One full platformer level ✅ | Play a level: platforms, collect flies, reach the goal, win/lose + score | Collisions, collectibles, camera, HUD |
+| 3 | Town hub (top-down) ✅ | Walk around town, enter a building, start a level from a door, come back | Top-down movement, scene transitions |
+| 4 | Intro + dialogue ✅ | Wake up in your room, read the story setup, step into town | Dialogue box, game-start flow |
+| **5** | Money + first shop + saving | Flies become coins; buy a sword in the weapon shop; it's still yours after closing the game; play a level again; flies reset each run | Saved game state, inventory, shop UI |
+| 6 | More levels + level select | Pick from 3 to 5 levels at the town gate; each one unlocks the next | Reusing scenes, unlock progress |
+| 7 | Enemies, hazards + hearts | Stomp walking enemies, avoid spikes, lose hearts, fail and retry | Enemy movement, damage, health |
+| 8 | House + furniture | Buy furniture and see it appear in your house | Reusing the shop system |
+| 9 | Gear matters | Tongue and sword attacks; armor and shields protect your hearts | Attacks, hitboxes, item stats |
+| 10 | The King Poison Dart Frog | A final boss level and the ending | Boss patterns, game ending |
+| 11 | Touch buttons | Play on a phone or tablet with on-screen buttons | Touch input mapped to the same actions |
+| 12 | Art + sound pass (later) | Real sprites, animations, tiles, music, sound effects | Sprites, animation, audio |
+| 13 | Title screen + pause menu (later) | Start / Continue / New game; pause with Resume and Quit to town | Menus, UI focus |
+
+**Every milestone ends with a deploy:** export the Web build and publish it to the
+website (steps in `AGENTS.md`), so the live game is always the latest playable one.
 
 Once milestone 5's shop works, the **armor / shield / furniture shops are copies** of
-it with different items — cheap to add.
+it with different items — cheap to add (armor and shield shops come with Milestone 9).
 
-**Current focus:** Milestones 1 + 2. See `docs/specs/` for the spec and `TASKS.md` for
+**Current focus:** Milestone 5. See `docs/specs/` for the spec and `TASKS.md` for
 live tasks.
