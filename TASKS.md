@@ -13,8 +13,8 @@ Status key: ▶ current · ⬜ upcoming · ✅ done
 | 2 | One full platformer level | ✅ done |
 | 3 | Town hub (top-down) | ✅ done |
 | 4 | Intro + dialogue | ✅ done |
-| 5 | Money + first shop + saving (+ play again, fly reset) | ▶ built, playtest next |
-| 6 | More levels + level select | ⬜ |
+| 5 | Money + first shop + saving (+ play again, fly reset) | ✅ done |
+| 6 | More levels + level select | ▶ next |
 | 7 | Enemies, hazards + hearts (stomp) | ⬜ |
 | 8 | House + furniture | ⬜ |
 | 9 | Gear matters (tongue + sword, armor, shields) | ⬜ |
@@ -98,10 +98,10 @@ Task 4.3 — playtest + bookkeeping
 - [x] Story speaker changed from Mom to Dad
 - [ ] (Later) Your son rewrites `INTRO_LINES` in `scripts/bedroom.gd`
 
-## ▶ Current: Milestone 5 — Money + first shop + saving
+## ✅ Completed: Milestone 5 — Money + first shop + saving
 
-Spec: `docs/specs/milestone-5-money-shop.md` (approved 2026-11-19). Built; waiting on the
-F5 playtest.
+Spec: `docs/specs/milestone-5-money-shop.md` (approved 2026-11-19). All playtests
+passed 2026-11-19.
 
 Task 5.1 — coins, saving, fly reset
 - [x] `item_catalog.gd` (3 placeholder swords), `save_game.gd` (`user://save.json`)
@@ -117,8 +117,12 @@ Task 5.3 — weapon shop
 - [x] `weapon_shop.tscn`: counter, shopkeeper greeting, then the shop list
 
 Task 5.4 — playtest + deploy
-- [ ] Run the spec checklist with F5 (and the web build for saving)
-- [ ] Deploy the web build to the website
+- [x] Ran the spec checklist with F5; all pass
+- [x] Deployed to https://xanderbush.com/froghopper/ (xanderbush 87544e6)
+
+## ▶ Next: Milestone 6 — More levels + level select
+
+Not started. Needs its own spec + plan.
 
 ## Backlog / parking lot (ideas for later)
 

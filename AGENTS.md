@@ -111,6 +111,11 @@ The `Web` preset lives in `export_presets.cfg` (Thread Support off).
      --export-release "Web" ~/repos/_personal/frog-hopper/build/web/index.html
    ```
    Output lands in `build/web/` (gitignored in this repo).
+   Two things the export needs first: run `mkdir -p ~/repos/_personal/frog-hopper/build/web`
+   (Godot won't create the folder), and the **export templates for the exact Godot
+   version** must be installed in
+   `~/Library/Application Support/Godot/export_templates/<version>.stable/` (4.7.2 web
+   templates installed 2026-11-19, from the official GitHub release, checksum-checked).
 
 2. Test locally: `python3 -m http.server 8000 --directory build/web`, then open
    http://localhost:8000 — you can't open `index.html` via `file://` (browsers block the
@@ -119,9 +124,8 @@ The `Web` preset lives in `export_presets.cfg` (Thread Support off).
 3. Copy into the site repo:
    `cp -R ~/repos/_personal/frog-hopper/build/web/. ~/repos/_personal/xanderbush/froghopper/`
 
-4. Commit + push the **xanderbush** repo. Netlify publishes from it on push *if that site is
-   connected to the `Jikodis/xanderbush` GitHub repo*; otherwise drag the `xanderbush` folder
-   onto Netlify (Add new site → Deploy manually). The build includes a ~37 MB `index.wasm`,
+4. Commit + push the **xanderbush** repo. Netlify publishes it on push (confirmed
+   2026-11-19); the live game is at https://xanderbush.com/froghopper/. The build includes a ~37 MB `index.wasm`,
    which lives in the xanderbush git history (fine for a hobby site).
 
 If Thread Support is ever turned on, the export needs cross-origin isolation. On Netlify,
